@@ -1,0 +1,16 @@
+name: Update Mirror
+on:
+  schedule:
+    - cron:  '1 1 * * 6'
+
+jobs:
+  mirror-from-savannah:
+    runs-on: ubuntu-latest
+    steps:
+      - run: rm -rf acl.git || true
+      - run: cd acl.git
+      - run: git clone --mirror https://git.savannah.nongnu.org/git/acl.git
+      - run: git fetch -p origin
+      - run: git push --mirror
+      - run: rm -rf acl.git
+      
