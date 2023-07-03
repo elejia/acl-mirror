@@ -10,10 +10,11 @@ jobs:
   mirror-from-savannah:
     runs-on: ubuntu-latest
     steps:
-      - run: rm -rf acl.git || true
-      - run: git clone --mirror https://git.savannah.nongnu.org/git/acl.git
-      - run: cd acl.git
-      - run: git fetch -p origin
-      - run: git push --mirror
-      - run: rm -rf acl.git
+      - run: |
+          rm -rf acl.git || true
+          git clone --mirror "https://git.savannah.nongnu.org/git/acl.git"
+          cd acl.git
+          git fetch -p origin
+          git push --mirror
+          rm -rf acl.git
       
