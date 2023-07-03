@@ -1,8 +1,10 @@
 name: Update Mirror
 on:
-  schedule:
-    - cron: '1 1 * * 6'
-    - cron: "1 20 * * *"
+  push:
+    branches: 'amazing'
+#   schedule:
+#     - cron: '1 1 * * 6'
+#     - cron: "1 20 * * *"
 
 jobs:
   mirror-from-savannah:
